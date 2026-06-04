@@ -59,7 +59,7 @@ function CaseStudyPage() {
 
         <Section eyebrow="02" title="Analysis">
           <ul className="space-y-3">
-            {cs.analysis.map((a, i) => (
+            {cs.analysis.map((a: string, i: number) => (
               <li key={i} className="flex gap-3">
                 <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-coffee" />
                 <span>{a}</span>
@@ -70,7 +70,7 @@ function CaseStudyPage() {
 
         <Section eyebrow="03" title="Solution">
           <ul className="space-y-3">
-            {cs.solution.map((s, i) => (
+            {cs.solution.map((s: string, i: number) => (
               <li key={i} className="flex gap-3">
                 <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-coffee" />
                 <span>{s}</span>
