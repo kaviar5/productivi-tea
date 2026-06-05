@@ -18,10 +18,11 @@ export function SiteHeader() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
         <Link to="/" className="group flex items-center" aria-label="ProductiviTEA home">
           <img
-            src={logo.url}
-            alt="ProductiviTEA — Sip. Focus. Achieve."
-            className="h-10 w-auto md:h-12"
+            src={mark.url}
+            alt="ProductiviTEA"
+            className="h-12 w-auto md:h-14"
           />
+          <span className="ml-3 font-serif text-xl text-espresso md:text-2xl">ProductiviTEA</span>
         </Link>
         <nav className="hidden gap-7 text-sm md:flex">
           {nav.map((item) => (
