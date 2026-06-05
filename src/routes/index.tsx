@@ -61,7 +61,7 @@ function Home() {
           <img
             src={logo.url}
             alt="ProductiviTEA — Sip. Focus. Achieve."
-            className="mx-auto w-full max-w-md"
+            className="mx-auto w-full max-w-2xl md:max-w-3xl"
           />
         </div>
       </section>
