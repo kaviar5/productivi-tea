@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import type { ReactNode } from "react";
+import logo from "@/assets/productivitea-logo.png.asset.json";
 
 const nav = [
   { to: "/", label: "Home" },
@@ -13,12 +14,13 @@ const nav = [
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-30 border-b border-border/60 bg-background/80 backdrop-blur-md">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <Link to="/" className="group flex items-center gap-2">
-          <CoffeeMark />
-          <span className="font-serif text-lg tracking-tight text-espresso">
-            Productivi<span className="italic text-coffee">TEA</span>
-          </span>
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
+        <Link to="/" className="group flex items-center" aria-label="ProductiviTEA home">
+          <img
+            src={logo.url}
+            alt="ProductiviTEA — Sip. Focus. Achieve."
+            className="h-10 w-auto md:h-12"
+          />
         </Link>
         <nav className="hidden gap-7 text-sm md:flex">
           {nav.map((item) => (
@@ -44,12 +46,11 @@ export function SiteFooter() {
       <div className="mx-auto max-w-6xl px-6 py-12">
         <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
           <div>
-            <div className="flex items-center gap-2">
-              <CoffeeMark />
-              <span className="font-serif text-base text-espresso">
-                Productivi<span className="italic text-coffee">TEA</span>
-              </span>
-            </div>
+            <img
+              src={logo.url}
+              alt="ProductiviTEA"
+              className="h-10 w-auto"
+            />
             <p className="mt-3 max-w-sm text-sm text-muted-foreground">
               Notes from the bench. Brewed slowly, served warm.
             </p>
@@ -61,16 +62,6 @@ export function SiteFooter() {
         </p>
       </div>
     </footer>
-  );
-}
-
-export function CoffeeMark({ className = "h-6 w-6" }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 32 32" fill="none" className={className} aria-hidden="true">
-      <path d="M8 13h14v8a5 5 0 0 1-5 5h-4a5 5 0 0 1-5-5v-8Z" stroke="currentColor" strokeWidth="1.4" className="text-coffee" />
-      <path d="M22 15h2.5a2.5 2.5 0 0 1 0 5H22" stroke="currentColor" strokeWidth="1.4" className="text-coffee" />
-      <path d="M12 8c0 1.5 1 2 1 3.5S12 13 12 14M16 7c0 1.5 1 2 1 3.5S16 12 16 13" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" className="steam text-coffee/70" />
-    </svg>
   );
 }
 

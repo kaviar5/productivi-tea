@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageShell, Divider } from "@/components/site-layout";
-import coffeeCup from "@/assets/coffee-cup.jpg";
+import logo from "@/assets/productivitea-logo.png.asset.json";
 import { caseStudies, notes, ideas } from "@/content/data";
 
 export const Route = createFileRoute("/")({
@@ -59,11 +59,9 @@ function Home() {
         <div className="relative">
           <div className="absolute -inset-6 -z-10 rounded-full bg-beige/40 blur-3xl" />
           <img
-            src={coffeeCup}
-            alt="A hand-drawn cup of coffee with rising steam"
-            width={1024}
-            height={1024}
-            className="mx-auto w-full max-w-sm"
+            src={logo.url}
+            alt="ProductiviTEA — Sip. Focus. Achieve."
+            className="mx-auto w-full max-w-md"
           />
         </div>
       </section>
