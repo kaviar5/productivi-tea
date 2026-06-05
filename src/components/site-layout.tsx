@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 import logo from "@/assets/productivitea-logo.png.asset.json";
+import mark from "@/assets/productivitea-mark.png.asset.json";
 
 const nav = [
   { to: "/", label: "Home" },
