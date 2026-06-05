@@ -51,7 +51,7 @@ export function SiteFooter() {
             <img
               src={logo.url}
               alt="ProductiviTEA"
-              className="h-10 w-auto"
+              className="h-24 w-auto md:h-28"
             />
             <p className="mt-3 max-w-sm text-sm text-muted-foreground">
               Notes from the bench. Brewed slowly, served warm.
