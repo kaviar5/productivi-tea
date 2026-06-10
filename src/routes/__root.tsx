@@ -79,10 +79,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "ProductiviTEA — Brewing Better Products" },
       { name: "description", content: "A quiet corner for product management — case studies, ideas, experiments, and notes." },
-      { property: "og:title", content: "ProductiviTEA" },
-      { property: "og:description", content: "Brewing better products, one note at a time." },
+      { property: "og:title", content: "ProductiviTEA — Brewing Better Products" },
+      { property: "og:description", content: "A quiet corner for product management — case studies, ideas, experiments, and notes." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
+      { name: "twitter:title", content: "ProductiviTEA — Brewing Better Products" },
+      { name: "twitter:description", content: "A quiet corner for product management — case studies, ideas, experiments, and notes." },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/3d4bd8a1-552e-4c46-bcdf-94fc5b01e24a" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/3d4bd8a1-552e-4c46-bcdf-94fc5b01e24a" },
     ],
     links: [
       {
