@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHeader, PageShell, Divider } from "@/components/site-layout";
+import resume from "@/assets/kavish-resume.pdf.asset.json";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -13,72 +14,58 @@ export const Route = createFileRoute("/about")({
   component: AboutPage,
 });
 
-const resume = [
-  {
-    when: "2023 — Present",
-    role: "Senior Product Manager",
-    org: "A reading app you've probably heard of",
-    note: "Leading discovery, onboarding, and the quiet work of making things simpler.",
-  },
-  {
-    when: "2021 — 2023",
-    role: "Product Manager",
-    org: "A small B2B SaaS",
-    note: "Owned analytics and pricing. Learned to write before I built.",
-  },
-  {
-    when: "2019 — 2021",
-    role: "Associate PM",
-    org: "Rotational program",
-    note: "Three teams, three industries. One conclusion: users always know more than the deck.",
-  },
-];
-
 function AboutPage() {
   return (
     <PageShell>
       <PageHeader
         eyebrow="— a short biography"
         title="About"
-        description="Hi, I'm a product manager who thinks best with a notebook open and a warm cup nearby. This site is where I keep my drafts."
+        description="Hi, I'm Kavish. I'm a product enthusiast exploring the intersection of technology, business, and human behavior. ProductiviTEA is my digital notebook; a place where I document product case studies, startup ideas, experiments, and lessons from books, products, and people."
       />
 
       <section className="mx-auto max-w-2xl space-y-6 px-6 text-pretty text-lg leading-relaxed text-foreground/85">
         <p>
-          I came to product management the long way — through writing, support, and a brief
-          detour into design. What stuck across all of it was a love for the in-between:
-          listening to a customer in the morning and shaping a small decision by the afternoon.
+          My path into product has been anything but linear. I've worked on 6G communication
+          research, built startup concepts, led student communities, and explored the intersection
+          of technology, business, and human behavior.
         </p>
         <p>
-          I believe the best products feel inevitable in hindsight and uncertain in the making.
-          The work is mostly listening, mostly subtracting, and occasionally — when the room is
-          quiet enough — saying the obvious thing first.
+          What excites me most is understanding why people behave the way they do, identifying
+          meaningful problems, and designing solutions that create value. I'm particularly interested
+          in product strategy, user research, product analytics, and early-stage startups.
         </p>
         <p>
-          Outside of work I read a lot of fiction, walk to think, and visit too many cafés in
-          search of the perfect oat cortado.
+          Through ProductiviTEA, I share product teardowns, case studies, Figma prototypes, startup
+          concepts, and observations gathered from everyday life. I treat it as a public archive of
+          my thinking; a place to learn, experiment, and improve over time.
         </p>
+      </section>
+
+      <section className="mx-auto max-w-2xl px-6 pt-10">
+        <blockquote className="border-l-2 border-coffee/30 pl-5 text-base italic leading-relaxed text-foreground/70">
+          "Jack of all trades, master of none, though oftentimes better than master of one."
+          <span className="mt-2 block text-sm not-italic text-muted-foreground">
+            Apparently the majority of the people don't know the whole quote, and that's why I like
+            it even more now.
+          </span>
+        </blockquote>
       </section>
 
       <Divider />
 
       <section className="mx-auto max-w-2xl px-6 pb-8">
         <h2 className="text-2xl text-espresso md:text-3xl">Resume</h2>
-        <ol className="mt-6 space-y-6">
-          {resume.map((r) => (
-            <li
-              key={r.when}
-              className="grid grid-cols-1 gap-2 border-l-2 border-coffee/40 pl-5 md:grid-cols-[180px_1fr]"
-            >
-              <p className="font-hand text-lg text-coffee">{r.when}</p>
-              <div>
-                <p className="font-serif text-lg text-espresso">{r.role}</p>
-                <p className="text-sm text-muted-foreground">{r.org}</p>
-                <p className="mt-1 text-sm text-foreground/80">{r.note}</p>
-              </div>
-            </li>
-          ))}
-        </ol>
+        <p className="mt-3 text-base text-muted-foreground">
+          A snapshot of my experience across product, research, startups, and leadership.
+        </p>
+        <a
+          href={resume.url}
+          target="_blank"
+          rel="noreferrer"
+          className="mt-6 inline-flex items-center rounded-full bg-coffee px-8 py-3 text-sm font-medium text-primary-foreground shadow-warm transition-all hover:-translate-y-0.5 hover:shadow-warm-lg"
+        >
+          View Resume
+        </a>
       </section>
 
       <Divider />
@@ -86,30 +73,22 @@ function AboutPage() {
       <section className="mx-auto max-w-2xl px-6 pb-20">
         <h2 className="text-2xl text-espresso md:text-3xl">Say hello</h2>
         <p className="mt-3 text-base text-muted-foreground">
-          Open to thoughtful conversation, slow correspondence, and occasional collaboration.
+          Always happy to discuss products, startups, technology, research, or ambitious ideas.
         </p>
         <div className="mt-6 flex flex-wrap gap-3">
           <a
-            href="mailto:hello@productivitea.example"
+            href="mailto:kavishkumar.m@gmail.com"
             className="rounded-full bg-coffee px-6 py-3 text-sm text-primary-foreground shadow-warm transition-all hover:-translate-y-0.5 hover:shadow-warm-lg"
           >
-            hello@productivitea.example
+            kavishkumar.m@gmail.com
           </a>
           <a
-            href="https://www.linkedin.com"
+            href="https://www.linkedin.com/in/kavish-kumar-m-0a6a58289/"
             target="_blank"
             rel="noreferrer"
             className="rounded-full border border-border bg-cream px-6 py-3 text-sm text-espresso transition-colors hover:bg-beige"
           >
             LinkedIn
-          </a>
-          <a
-            href="https://twitter.com"
-            target="_blank"
-            rel="noreferrer"
-            className="rounded-full border border-border bg-cream px-6 py-3 text-sm text-espresso transition-colors hover:bg-beige"
-          >
-            Twitter / X
           </a>
         </div>
       </section>
