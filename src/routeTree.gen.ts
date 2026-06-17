@@ -19,6 +19,7 @@ import { Route as ExperimentsRightProblemRouteImport } from './routes/experiment
 import { Route as ExperimentsMagazineWebsitesRouteImport } from './routes/experiments.magazine-websites'
 import { Route as CaseStudiesSlugRouteImport } from './routes/case-studies.$slug'
 import { Route as CaseStudiesLoginDetailRouteImport } from './routes/case-studies.login-detail'
+import { Route as CaseStudiesIndexRouteImport } from './routes/case-studies.index'
 
 const NotesRoute = NotesRouteImport.update({
   id: '/notes',
@@ -61,6 +62,11 @@ const ExperimentsMagazineWebsitesRoute =
     path: '/magazine-websites',
     getParentRoute: () => ExperimentsRoute,
   } as any)
+const CaseStudiesIndexRoute = CaseStudiesIndexRouteImport.update({
+  id: '/case-studies/',
+  path: '/',
+  getParentRoute: () => CaseStudiesRoute,
+} as any)
 const CaseStudiesLoginDetailRoute = CaseStudiesLoginDetailRouteImport.update({
   id: '/login-detail',
   path: '/login-detail',
@@ -80,6 +86,8 @@ export interface FileRoutesByFullPath {
   '/notes': typeof NotesRoute
   '/case-studies/login-detail': typeof CaseStudiesLoginDetailRoute
   '/case-studies/login-detail': typeof CaseStudiesLoginDetailRoute
+  '/case-studies/': typeof CaseStudiesIndexRoute
+  '/case-studies/': typeof CaseStudiesIndexRoute
   '/case-studies/login-detail': typeof CaseStudiesLoginDetailRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/experiments/magazine-websites': typeof ExperimentsMagazineWebsitesRoute
@@ -118,6 +126,7 @@ export interface FileRouteTypes {
     | '/notes'
     | '/case-studies/login-detail'
     | '/case-studies/login-detail'
+    | '/case-studies/'
     | '/case-studies/login-detail'
     | '/case-studies/$slug'
     | '/experiments/magazine-websites'
@@ -212,6 +221,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ExperimentsMagazineWebsitesRouteImport
       parentRoute: typeof ExperimentsRoute
     }
+    '/case-studies/': {
+      id: '/case-studies/'
+      path: '/'
+      fullPath: '/case-studies/'
+      preLoaderRoute: typeof CaseStudiesIndexRouteImport
+      parentRoute: typeof CaseStudiesRoute
+    }
     '/case-studies/login-detail': {
       id: '/case-studies/login-detail'
       path: '/login-detail'
@@ -230,11 +246,13 @@ declare module '@tanstack/react-router' {
 }
 
 interface CaseStudiesRouteChildren {
+  CaseStudiesIndexRoute: typeof CaseStudiesIndexRoute
   CaseStudiesLoginDetailRoute: typeof CaseStudiesLoginDetailRoute
   CaseStudiesSlugRoute: typeof CaseStudiesSlugRoute
 }
 
 const CaseStudiesRouteChildren: CaseStudiesRouteChildren = {
+  CaseStudiesIndexRoute: CaseStudiesIndexRoute,
   CaseStudiesLoginDetailRoute: CaseStudiesLoginDetailRoute,
   CaseStudiesSlugRoute: CaseStudiesSlugRoute,
 }
