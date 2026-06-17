@@ -19,6 +19,7 @@ import { Route as ExperimentsRightProblemRouteImport } from './routes/experiment
 import { Route as ExperimentsMagazineWebsitesRouteImport } from './routes/experiments.magazine-websites'
 import { Route as CaseStudiesSlugRouteImport } from './routes/case-studies.$slug'
 import { Route as CaseStudiesLoginDetailRouteImport } from './routes/case-studies.login-detail'
+import { Route as CaseStudiesReclaimRouteImport } from './routes/case-studies.reclaim'
 import { Route as CaseStudiesIndexRouteImport } from './routes/case-studies.index'
 
 const NotesRoute = NotesRouteImport.update({
@@ -67,6 +68,11 @@ const CaseStudiesIndexRoute = CaseStudiesIndexRouteImport.update({
   path: '/',
   getParentRoute: () => CaseStudiesRoute,
 } as any)
+const CaseStudiesReclaimRoute = CaseStudiesReclaimRouteImport.update({
+  id: '/case-studies/reclaim',
+  path: '/reclaim',
+  getParentRoute: () => CaseStudiesRoute,
+} as any)
 const CaseStudiesLoginDetailRoute = CaseStudiesLoginDetailRouteImport.update({
   id: '/login-detail',
   path: '/login-detail',
@@ -84,10 +90,12 @@ export interface FileRoutesByFullPath {
   '/case-studies': typeof CaseStudiesRouteWithChildren
   '/experiments': typeof ExperimentsRouteWithChildren
   '/notes': typeof NotesRoute
+  '/case-studies/reclaim': typeof CaseStudiesReclaimRoute
   '/case-studies/login-detail': typeof CaseStudiesLoginDetailRoute
   '/case-studies/login-detail': typeof CaseStudiesLoginDetailRoute
   '/case-studies/': typeof CaseStudiesIndexRoute
   '/case-studies/': typeof CaseStudiesIndexRoute
+  '/case-studies/reclaim': typeof CaseStudiesReclaimRoute
   '/case-studies/login-detail': typeof CaseStudiesLoginDetailRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/experiments/magazine-websites': typeof ExperimentsMagazineWebsitesRoute
@@ -124,6 +132,7 @@ export interface FileRouteTypes {
     | '/case-studies'
     | '/experiments'
     | '/notes'
+    | '/case-studies/reclaim'
     | '/case-studies/login-detail'
     | '/case-studies/login-detail'
     | '/case-studies/'
@@ -228,6 +237,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CaseStudiesIndexRouteImport
       parentRoute: typeof CaseStudiesRoute
     }
+    '/case-studies/reclaim': {
+      id: '/case-studies/reclaim'
+      path: '/reclaim'
+      fullPath: '/case-studies/reclaim'
+      preLoaderRoute: typeof CaseStudiesReclaimRouteImport
+      parentRoute: typeof CaseStudiesRoute
+    }
     '/case-studies/login-detail': {
       id: '/case-studies/login-detail'
       path: '/login-detail'
@@ -247,12 +263,14 @@ declare module '@tanstack/react-router' {
 
 interface CaseStudiesRouteChildren {
   CaseStudiesIndexRoute: typeof CaseStudiesIndexRoute
+  CaseStudiesReclaimRoute: typeof CaseStudiesReclaimRoute
   CaseStudiesLoginDetailRoute: typeof CaseStudiesLoginDetailRoute
   CaseStudiesSlugRoute: typeof CaseStudiesSlugRoute
 }
 
 const CaseStudiesRouteChildren: CaseStudiesRouteChildren = {
   CaseStudiesIndexRoute: CaseStudiesIndexRoute,
+  CaseStudiesReclaimRoute: CaseStudiesReclaimRoute,
   CaseStudiesLoginDetailRoute: CaseStudiesLoginDetailRoute,
   CaseStudiesSlugRoute: CaseStudiesSlugRoute,
 }
