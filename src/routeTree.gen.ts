@@ -15,6 +15,7 @@ import { Route as CaseStudiesRouteImport } from './routes/case-studies'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ExperimentsIndexRouteImport } from './routes/experiments.index'
+import { Route as ExperimentsRightProblemRouteImport } from './routes/experiments.right-problem'
 import { Route as ExperimentsMagazineWebsitesRouteImport } from './routes/experiments.magazine-websites'
 import { Route as CaseStudiesSlugRouteImport } from './routes/case-studies.$slug'
 
@@ -48,6 +49,11 @@ const ExperimentsIndexRoute = ExperimentsIndexRouteImport.update({
   path: '/',
   getParentRoute: () => ExperimentsRoute,
 } as any)
+const ExperimentsRightProblemRoute = ExperimentsRightProblemRouteImport.update({
+  id: '/right-problem',
+  path: '/right-problem',
+  getParentRoute: () => ExperimentsRoute,
+} as any)
 const ExperimentsMagazineWebsitesRoute =
   ExperimentsMagazineWebsitesRouteImport.update({
     id: '/magazine-websites',
@@ -68,6 +74,7 @@ export interface FileRoutesByFullPath {
   '/notes': typeof NotesRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/experiments/magazine-websites': typeof ExperimentsMagazineWebsitesRoute
+  '/experiments/right-problem': typeof ExperimentsRightProblemRoute
   '/experiments/': typeof ExperimentsIndexRoute
 }
 export interface FileRoutesByTo {
@@ -77,6 +84,7 @@ export interface FileRoutesByTo {
   '/notes': typeof NotesRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/experiments/magazine-websites': typeof ExperimentsMagazineWebsitesRoute
+  '/experiments/right-problem': typeof ExperimentsRightProblemRoute
   '/experiments': typeof ExperimentsIndexRoute
 }
 export interface FileRoutesById {
@@ -88,6 +96,7 @@ export interface FileRoutesById {
   '/notes': typeof NotesRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/experiments/magazine-websites': typeof ExperimentsMagazineWebsitesRoute
+  '/experiments/right-problem': typeof ExperimentsRightProblemRoute
   '/experiments/': typeof ExperimentsIndexRoute
 }
 export interface FileRouteTypes {
@@ -100,6 +109,7 @@ export interface FileRouteTypes {
     | '/notes'
     | '/case-studies/$slug'
     | '/experiments/magazine-websites'
+    | '/experiments/right-problem'
     | '/experiments/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -109,6 +119,7 @@ export interface FileRouteTypes {
     | '/notes'
     | '/case-studies/$slug'
     | '/experiments/magazine-websites'
+    | '/experiments/right-problem'
     | '/experiments'
   id:
     | '__root__'
@@ -119,6 +130,7 @@ export interface FileRouteTypes {
     | '/notes'
     | '/case-studies/$slug'
     | '/experiments/magazine-websites'
+    | '/experiments/right-problem'
     | '/experiments/'
   fileRoutesById: FileRoutesById
 }
@@ -174,6 +186,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ExperimentsIndexRouteImport
       parentRoute: typeof ExperimentsRoute
     }
+    '/experiments/right-problem': {
+      id: '/experiments/right-problem'
+      path: '/right-problem'
+      fullPath: '/experiments/right-problem'
+      preLoaderRoute: typeof ExperimentsRightProblemRouteImport
+      parentRoute: typeof ExperimentsRoute
+    }
     '/experiments/magazine-websites': {
       id: '/experiments/magazine-websites'
       path: '/magazine-websites'
@@ -205,11 +224,13 @@ const CaseStudiesRouteWithChildren = CaseStudiesRoute._addFileChildren(
 
 interface ExperimentsRouteChildren {
   ExperimentsMagazineWebsitesRoute: typeof ExperimentsMagazineWebsitesRoute
+  ExperimentsRightProblemRoute: typeof ExperimentsRightProblemRoute
   ExperimentsIndexRoute: typeof ExperimentsIndexRoute
 }
 
 const ExperimentsRouteChildren: ExperimentsRouteChildren = {
   ExperimentsMagazineWebsitesRoute: ExperimentsMagazineWebsitesRoute,
+  ExperimentsRightProblemRoute: ExperimentsRightProblemRoute,
   ExperimentsIndexRoute: ExperimentsIndexRoute,
 }
 
