@@ -14,6 +14,7 @@ import { Route as ExperimentsRouteImport } from './routes/experiments'
 import { Route as CaseStudiesRouteImport } from './routes/case-studies'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ExperimentsIndexRouteImport } from './routes/experiments.index'
 import { Route as ExperimentsMagazineWebsitesRouteImport } from './routes/experiments.magazine-websites'
 import { Route as CaseStudiesSlugRouteImport } from './routes/case-studies.$slug'
 
@@ -42,6 +43,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ExperimentsIndexRoute = ExperimentsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ExperimentsRoute,
+} as any)
 const ExperimentsMagazineWebsitesRoute =
   ExperimentsMagazineWebsitesRouteImport.update({
     id: '/magazine-websites',
@@ -62,15 +68,16 @@ export interface FileRoutesByFullPath {
   '/notes': typeof NotesRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/experiments/magazine-websites': typeof ExperimentsMagazineWebsitesRoute
+  '/experiments/': typeof ExperimentsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/case-studies': typeof CaseStudiesRouteWithChildren
-  '/experiments': typeof ExperimentsRouteWithChildren
   '/notes': typeof NotesRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/experiments/magazine-websites': typeof ExperimentsMagazineWebsitesRoute
+  '/experiments': typeof ExperimentsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -81,6 +88,7 @@ export interface FileRoutesById {
   '/notes': typeof NotesRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/experiments/magazine-websites': typeof ExperimentsMagazineWebsitesRoute
+  '/experiments/': typeof ExperimentsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -92,15 +100,16 @@ export interface FileRouteTypes {
     | '/notes'
     | '/case-studies/$slug'
     | '/experiments/magazine-websites'
+    | '/experiments/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
     | '/case-studies'
-    | '/experiments'
     | '/notes'
     | '/case-studies/$slug'
     | '/experiments/magazine-websites'
+    | '/experiments'
   id:
     | '__root__'
     | '/'
@@ -110,6 +119,7 @@ export interface FileRouteTypes {
     | '/notes'
     | '/case-studies/$slug'
     | '/experiments/magazine-websites'
+    | '/experiments/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -157,6 +167,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/experiments/': {
+      id: '/experiments/'
+      path: '/'
+      fullPath: '/experiments/'
+      preLoaderRoute: typeof ExperimentsIndexRouteImport
+      parentRoute: typeof ExperimentsRoute
+    }
     '/experiments/magazine-websites': {
       id: '/experiments/magazine-websites'
       path: '/magazine-websites'
@@ -188,10 +205,12 @@ const CaseStudiesRouteWithChildren = CaseStudiesRoute._addFileChildren(
 
 interface ExperimentsRouteChildren {
   ExperimentsMagazineWebsitesRoute: typeof ExperimentsMagazineWebsitesRoute
+  ExperimentsIndexRoute: typeof ExperimentsIndexRoute
 }
 
 const ExperimentsRouteChildren: ExperimentsRouteChildren = {
   ExperimentsMagazineWebsitesRoute: ExperimentsMagazineWebsitesRoute,
+  ExperimentsIndexRoute: ExperimentsIndexRoute,
 }
 
 const ExperimentsRouteWithChildren = ExperimentsRoute._addFileChildren(
@@ -208,13 +227,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
