@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHeader, PageShell } from "@/components/site-layout";
 import { caseStudies } from "@/content/data";
 
-export const Route = createFileRoute("/case-studies")({
+export const Route = createFileRoute("/case-studies/")({
   head: () => ({
     meta: [
       { title: "Case Studies — ProductiviTEA" },
