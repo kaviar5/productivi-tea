@@ -24,6 +24,24 @@ function CaseStudiesPage() {
       />
       <section className="mx-auto max-w-3xl space-y-6 px-6 pb-16">
         <Link
+          to="/case-studies/login-detail"
+          className="group block rounded-2xl border border-coffee/30 bg-beige/40 p-8 shadow-warm transition-all hover:-translate-y-0.5 hover:border-coffee/60 hover:shadow-warm-lg"
+        >
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <span className="rounded-full bg-coffee px-3 py-1 text-xs uppercase tracking-[0.14em] text-primary-foreground">
+              Featured · UX Observation
+            </span>
+            <p className="text-xs text-muted-foreground">2025</p>
+          </div>
+          <h2 className="mt-4 text-balance text-2xl text-espresso transition-colors group-hover:text-coffee md:text-3xl">
+            The Tiny Login Detail That Reduced a Decision
+          </h2>
+          <p className="mt-3 text-pretty text-base text-muted-foreground">
+            How a small UI cue quietly reduced cognitive effort during authentication.
+          </p>
+          <p className="mt-5 font-hand text-lg text-coffee">Read the case study →</p>
+        </Link>
+        <Link
           to="/experiments/right-problem"
           className="group block rounded-2xl border border-coffee/30 bg-beige/40 p-8 shadow-warm transition-all hover:-translate-y-0.5 hover:border-coffee/60 hover:shadow-warm-lg"
         >
