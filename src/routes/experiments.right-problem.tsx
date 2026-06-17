@@ -30,8 +30,8 @@ function RightProblemPage() {
   return (
     <PageShell>
       <article className="mx-auto max-w-3xl px-6 pt-16 pb-20">
-        <Link to="/experiments" className="text-sm text-coffee hover:underline">
-          ← Experiments
+        <Link to="/case-studies" className="text-sm text-coffee hover:underline">
+          ← Case Studies
         </Link>
 
         <div className="mt-8 flex items-center gap-3 text-xs uppercase tracking-[0.18em] text-coffee">
