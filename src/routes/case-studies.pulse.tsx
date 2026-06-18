@@ -4,17 +4,17 @@ import { PageShell, Divider } from "@/components/site-layout";
 export const Route = createFileRoute("/case-studies/pulse")({
   head: () => ({
     meta: [
-      { title: "The Pulse Paradox — ProductiviTEA" },
+      { title: "The Pulse Paradox  | ProductiviTEA" },
       {
         name: "description",
         content:
-          "How a ₹1 candy hit ₹300 Crores in two years — and what it reveals about dopamine, pain loops, and cultural memory.",
+          "How a ₹1 candy hit ₹300 Crores in two years exploring dopamine, pain loops, and cultural memory.",
       },
       { property: "og:title", content: "The Pulse Paradox" },
       {
         property: "og:description",
         content:
-          "How a ₹1 candy hit ₹300 Crores in two years — and what it reveals about dopamine, pain loops, and cultural memory.",
+          "How a ₹1 candy hit ₹300 Crores in two years exploring dopamine, pain loops, and cultural memory.",
       },
     ],
   }),
@@ -39,8 +39,7 @@ function PulsePage() {
           The Pulse Paradox
         </h1>
         <p className="mt-5 text-pretty text-lg text-muted-foreground">
-          How a ₹1 candy hit ₹300 Crores in two years — and what it reveals
-          about dopamine, pain loops, and cultural memory.
+          How a ₹1 candy hit ₹300 Crores in two years exploring dopamine, pain loops, and cultural memory.
         </p>
 
         <Divider />
@@ -58,7 +57,7 @@ function PulsePage() {
           </p>
           <p>Within 8 months, Pulse crossed ₹100 Crores in revenue.</p>
           <p className="font-hand text-xl text-coffee">
-            Within 2 years — ₹300 Crores.
+            Within 2 years: ₹300 Crores.
           </p>
           <p>
             Most people called it luck. A viral moment. Right product, right
@@ -73,28 +72,6 @@ function PulsePage() {
             experience.
           </p>
 
-          {/* Revenue chart */}
-          <div className="mt-8 overflow-hidden rounded-2xl border border-border bg-card shadow-warm">
-            <div className="p-6">
-              <p className="text-xs uppercase tracking-[0.18em] text-coffee">Revenue comparison</p>
-              <p className="mt-1 text-2xl text-espresso">The 300 Crore Anomaly</p>
-              <div className="mt-6 flex items-end gap-6">
-                <div className="flex flex-col items-center gap-2">
-                  <span className="text-xs text-muted-foreground">Avg. Candy</span>
-                  <div className="w-16 rounded-t bg-espresso/20" style={{ height: "24px" }} />
-                </div>
-                <div className="flex flex-col items-center gap-2">
-                  <span className="text-sm font-medium text-espresso">₹300 Cr</span>
-                  <div className="w-16 rounded-t bg-coffee" style={{ height: "160px" }} />
-                  <span className="text-xs text-muted-foreground">Pulse</span>
-                </div>
-              </div>
-              <div className="mt-1 h-px w-full bg-border" />
-            </div>
-            <div className="border-t border-border/60 bg-beige/40 px-6 py-4 text-sm text-muted-foreground">
-              ₹100 Cr in 8 months · ₹300 Cr in 2 years · launched 2015
-            </div>
-          </div>
         </Section>
 
         {/* ── SECTION 01 ── */}
@@ -108,8 +85,7 @@ function PulsePage() {
             habits don't do so by accident.
           </p>
           <p>
-            So I started asking a different question — not "why did Pulse sell
-            well?" but:
+            So I started asking a different question . Not "why did Pulse sell well?" but:
           </p>
           <blockquote className="border-l-2 border-coffee/50 pl-4 font-hand text-xl text-espresso">
             "Why does eating one make you immediately want another?"
@@ -121,11 +97,11 @@ function PulsePage() {
         </Section>
 
         {/* ── SECTION 02 ── */}
-        <Section eyebrow="02" title="Hack #1 — Reward Prediction Error">
+        <Section eyebrow="02" title="Hack #1: Reward Prediction Error">
           <p>The brain is a prediction machine.</p>
           <p>
             Before you eat anything, your brain makes a quiet forecast about
-            what's coming — based on appearance, smell, memory.
+            what's coming based on appearance, smell, and memory.
           </p>
           <p>
             When you pick up Pulse, the brain sees a small green candy and
@@ -141,7 +117,7 @@ function PulsePage() {
               Reward Prediction Error
             </span>
             . When the outcome exceeds what the brain predicted, it releases a
-            disproportionate dopamine spike — tagging the experience as
+            disproportionate dopamine spike , tagging the experience as
             important. Worth repeating.
           </p>
           <p>
@@ -181,16 +157,15 @@ function PulsePage() {
         </Section>
 
         {/* ── SECTION 03 ── */}
-        <Section eyebrow="03" title="Hack #2 — The Pain = Pleasure Loop">
+        <Section eyebrow="03" title="Hack #2: The Pain = Pleasure Loop">
           <p>Spice isn't actually a taste.</p>
           <p>
-            It's pain. Capsaicin — the compound behind heat — activates the
+            It's pain. Capsaicin (the compound behind heat) activates the
             trigeminal nerve, which sends a pain signal to the brain.
           </p>
           <p>
             The brain's immediate response is to flood the system with
-            endorphins — the same natural opioids released during exercise or
-            laughter — to soothe the irritation.
+            endorphins (the same natural opioids released during exercise or laughter) to soothe the irritation.
           </p>
           <p>
             The result: a mild biological high. The spice causes discomfort. The
@@ -201,7 +176,7 @@ function PulsePage() {
           </p>
           <p>
             This is why spicy food is addictive to so many people. And it's why
-            Pulse's "kick" doesn't push you away — it pulls you back.
+            Pulse's "kick" doesn't push you away. It pulls you back.
           </p>
 
           {/* Pain-pleasure loop diagram */}
@@ -214,7 +189,7 @@ function PulsePage() {
                   { step: "01", label: "Spice activates Trigeminal Nerve", icon: "🌶️", color: "bg-red-50 border-red-200" },
                   { step: "02", label: "Brain reads signal as mild pain", icon: "⚡", color: "bg-amber-50 border-amber-200" },
                   { step: "03", label: "Endorphins released to soothe", icon: "✨", color: "bg-beige border-coffee/20" },
-                  { step: "04", label: "Biological high — repeat craving", icon: "🔄", color: "bg-coffee/5 border-coffee/30" },
+                  { step: "04", label: "Biological high, repeat craving", icon: "🔄", color: "bg-coffee/5 border-coffee/30" },
                 ].map(({ step, label, icon, color }) => (
                   <div key={step} className={`flex items-center gap-4 rounded-xl border px-4 py-3 ${color}`}>
                     <span className="text-xs font-medium text-muted-foreground">{step}</span>
@@ -228,7 +203,7 @@ function PulsePage() {
         </Section>
 
         {/* ── SECTION 04 ── */}
-        <Section eyebrow="04" title="Hack #3 — The Attention Reset">
+        <Section eyebrow="04" title="Hack #3: The Attention Reset">
           <p>
             There's a well-documented phenomenon in sensory science called{" "}
             <span className="font-medium text-espresso">
@@ -244,7 +219,7 @@ function PulsePage() {
             Pulse is designed to sidestep this entirely.
           </p>
           <p>
-            You start with the outer layer — sweet, familiar, mildly fruity. The
+            You start with the outer layer: sweet, familiar, mildly fruity. The
             brain begins to adapt. Satiety begins to set in.
           </p>
           <p>
@@ -297,7 +272,7 @@ function PulsePage() {
             But neuroscience alone doesn't fully explain ₹300 Crores.
           </p>
           <p>
-            There's a fourth layer — cultural memory.
+            There's a fourth layer: cultural memory.
           </p>
           <p>
             In India, raw mango with salt and chilli isn't a flavour. It's a
@@ -314,7 +289,7 @@ function PulsePage() {
           <p>
             When the brain encounters a flavour tied to an emotional memory, the
             hippocampus and amygdala activate together. The experience doesn't
-            just taste familiar — it feels meaningful.
+            just taste familiar. It feels meaningful.
           </p>
           <p>
             That's an entirely different category of product engagement.
@@ -359,7 +334,7 @@ function PulsePage() {
           </p>
           <p>
             Pulse is a masterclass in layered product design. Not because it did
-            one thing brilliantly — but because it stacked four separate
+            one thing brilliantly. It stacked four separate
             behavioural mechanisms, each reinforcing the others.
           </p>
           <div className="mt-2 space-y-3">

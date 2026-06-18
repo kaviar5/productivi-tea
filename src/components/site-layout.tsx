@@ -56,7 +56,6 @@ export function SiteFooter() {
               Notes from the bench. Brewed slowly, served warm.
             </p>
           </div>
-          <p className="font-hand text-xl text-coffee">— always thinking in drafts</p>
         </div>
         <p className="mt-10 text-xs text-muted-foreground">
           © {new Date().getFullYear()} ProductiviTEA. Brewed with intent.
