@@ -27,7 +27,7 @@ function NotesPage() {
           {notes.map((n) => (
             <li key={n.slug}>
               <Link
-                to="/notes/21-ux-laws"
+                to="/ux-laws"
                 className="group block rounded-2xl border border-coffee/30 bg-beige/40 p-8 shadow-warm transition-all hover:-translate-y-0.5 hover:border-coffee/60 hover:shadow-warm-lg"
               >
                 <div className="flex items-center justify-between">
