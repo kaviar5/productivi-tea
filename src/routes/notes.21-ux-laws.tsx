@@ -180,7 +180,7 @@ function UXLawsPage() {
         </h1>
         <p className="mt-5 text-pretty text-lg text-muted-foreground">
           I went down a rabbit hole on this. Turns out most design decisions are
-          really psychology decisions — and someone already named all the rules.
+          really psychology decisions and someone already named all the rules.
           Here are all 21, in plain English, with examples I actually understand.
         </p>
 
