@@ -103,7 +103,7 @@ export const notes: Note[] = [
     source: "Laws of UX",
     category: "Framework",
     excerpt:
-      "Turns out most design decisions are really psychology decisions. Someone already named all the rules. Here they are in plain English.",
+      "Turns out most design decisions are really psychology decisions. Someone already named all the rules.",
     date: "June 2025",
   },
 ];
