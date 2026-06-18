@@ -151,6 +151,195 @@ export const notes: Note[] = [
       "Roadmaps are outputs. Strategy is the shape of the choices you're willing to make and the ones you're not.",
     date: "January 2025",
   },
+  {
+    slug: "ux-law-jacobs",
+    title: "Jacob's Law: design for where people already are",
+    source: "Laws of UX — Jon Yablonski",
+    category: "Lesson",
+    excerpt:
+      "Users spend most of their time on other products — so they arrive at yours carrying a mental model built elsewhere. Fight it and you create friction. Match it and you earn trust before you've earned attention. The cart lives top-right. The logo goes home. These aren't design choices anymore. They're debts you owe.",
+    date: "June 2025",
+  },
+  {
+    slug: "ux-law-aesthetic-usability",
+    title: "Aesthetic-Usability Effect: beautiful things feel easier",
+    source: "Laws of UX — Jon Yablonski",
+    category: "Lesson",
+    excerpt:
+      "People rate visually appealing designs as more usable — even when they aren't. A polished UI gives users permission to trust it. The dangerous flip side: beauty masks real problems for longer than an ugly design ever would. It buys goodwill. It doesn't substitute for thinking.",
+    date: "June 2025",
+  },
+  {
+    slug: "ux-law-doherty",
+    title: "Doherty Threshold: 400ms is the edge of feeling in control",
+    source: "Laws of UX — Jon Yablonski",
+    category: "Lesson",
+    excerpt:
+      "Under 400ms, users feel like they're driving. Past it, they feel like they're waiting. The fix isn't always speed — it's the illusion of speed. Progress bars, skeleton screens, optimistic updates: psychological contracts that say 'we heard you.' Silence says nothing, and users fill silence with doubt.",
+    date: "June 2025",
+  },
+  {
+    slug: "ux-law-fitts",
+    title: "Fitts's Law: the button that costs effort will be ignored",
+    source: "Laws of UX — Jon Yablonski",
+    category: "Lesson",
+    excerpt:
+      "Time-to-target is a function of distance and size. Tiny touch targets. CTAs marooned in whitespace. Submit buttons at the bottom of long forms with no anchor. Every extra pixel of travel is a micro-tax on intent. Make the thing you want clicked large, close, and obvious.",
+    date: "June 2025",
+  },
+  {
+    slug: "ux-law-hicks",
+    title: "Hick's Law: more choices, more paralysis",
+    source: "Laws of UX — Jon Yablonski",
+    category: "Lesson",
+    excerpt:
+      "Decision time grows with the number of options. Give someone three paths and they'll pick one. Give them thirty and they'll close the tab. The product instinct is always to add. The design instinct has to be the counterweight. Menus that hide complexity aren't dumbing down — they're respecting cognitive load.",
+    date: "June 2025",
+  },
+  {
+    slug: "ux-law-miller",
+    title: "Miller's Law: 7 ± 2, and then it spills",
+    source: "Laws of UX — Jon Yablonski",
+    category: "Lesson",
+    excerpt:
+      "Working memory holds roughly seven items at a time. After that, things fall out. This is why onboarding flows that dump twelve tips at once don't stick, why nine-item nav bars confuse, and why the most important design move is often chunking — breaking complexity into groups small enough to hold in your head.",
+    date: "June 2025",
+  },
+  {
+    slug: "ux-law-goal-gradient",
+    title: "Goal-Gradient Effect: the closer you are, the faster you run",
+    source: "Laws of UX — Jon Yablonski",
+    category: "Lesson",
+    excerpt:
+      "Effort accelerates as a goal comes into view. Dropbox's onboarding checklist, LinkedIn's completeness bar, Duolingo's streak — they manufacture proximity to a finish line. Users who feel almost done push harder than users who feel they're starting. Show early progress, even if it's a little artificial. The first checkmark matters most.",
+    date: "June 2025",
+  },
+  {
+    slug: "ux-law-common-region",
+    title: "Law of Common Region: a box says 'these belong together'",
+    source: "Laws of UX — Jon Yablonski",
+    category: "Lesson",
+    excerpt:
+      "Put elements inside a shared boundary — a card, a panel, a border — and users read them as a unit. It's one of the cheapest ways to communicate structure without a word of copy. Elements that float without a container feel orphaned. Grouping is meaning. Don't make users guess what goes with what.",
+    date: "June 2025",
+  },
+  {
+    slug: "ux-law-proximity",
+    title: "Law of Proximity: things near each other feel related",
+    source: "Laws of UX — Jon Yablonski",
+    category: "Lesson",
+    excerpt:
+      "Space is syntax. Elements placed close together get read as belonging to the same idea. This is why a label floating between two form fields is a UX crime — the eye doesn't know which it belongs to. Whitespace isn't decoration; it's punctuation. Use it to separate what shouldn't be grouped and tighten what should.",
+    date: "June 2025",
+  },
+  {
+    slug: "ux-law-uniform-connectedness",
+    title: "Law of Uniform Connectedness: shared style signals shared meaning",
+    source: "Laws of UX — Jon Yablonski",
+    category: "Lesson",
+    excerpt:
+      "Elements that look alike get treated alike. This is why design systems exist — not to make everything look the same, but to make relationships visible through consistency. When a secondary button looks like a primary one, users lose the hierarchy. Style carries meaning. Every visual decision is a signal about what something is for.",
+    date: "June 2025",
+  },
+  {
+    slug: "ux-law-praegnanz",
+    title: "Law of Prägnanz: the brain always finds the simplest shape",
+    source: "Laws of UX — Jon Yablonski",
+    category: "Lesson",
+    excerpt:
+      "When faced with ambiguity, the eye reduces complexity to its simplest interpretation. Users don't parse ornate iconography — they guess. Complexity that can't be decoded gets ignored. This is why CTAs are rectangles, why icons lean on convention, and why the most sophisticated interface design often looks like the most obvious one.",
+    date: "June 2025",
+  },
+  {
+    slug: "ux-law-similarity",
+    title: "Law of Similarity: same look, same function — break it intentionally",
+    source: "Laws of UX — Jon Yablonski",
+    category: "Lesson",
+    excerpt:
+      "Users assume elements that look alike do the same thing. That's a feature when true and a bug when it isn't (a disabled state that looks exactly like an active one). The inverse is the useful tool: if you want something noticed as different, make it look different. The odd one out gets remembered.",
+    date: "June 2025",
+  },
+  {
+    slug: "ux-law-occams-razor",
+    title: "Occam's Razor: the simplest design that works is the right design",
+    source: "Laws of UX — Jon Yablonski",
+    category: "Lesson",
+    excerpt:
+      "Between two designs that do the same thing, pick the one with fewer moving parts. Every element you add creates something a user has to notice, interpret, or ignore. The instinct to keep adding is the enemy. Dieter Rams said it cleanly: good design is as little design as possible. The best revision is usually subtraction.",
+    date: "June 2025",
+  },
+  {
+    slug: "ux-law-pareto",
+    title: "Pareto Principle: 80% of the value lives in 20% of the features",
+    source: "Laws of UX — Jon Yablonski",
+    category: "Lesson",
+    excerpt:
+      "Most users use a small fraction of what you've built, most of the time. The corollary is uncomfortable: most of your roadmap is delivering marginal value. The Pareto lens forces a useful question — if we could only ship the 20% that matters most, what would it be? The MVP isn't a phase. It's a discipline.",
+    date: "June 2025",
+  },
+  {
+    slug: "ux-law-parkinson",
+    title: "Parkinson's Law: work expands to fill whatever time you give it",
+    source: "Laws of UX — Jon Yablonski",
+    category: "Lesson",
+    excerpt:
+      "Tasks take as long as users expect them to take. If your checkout feels like two minutes but takes five, the experience feels broken even if nothing went wrong. Autofill, saved addresses, smart defaults — these don't just reduce effort, they reset the clock on expectation. Make the task shorter than the user feared.",
+    date: "June 2025",
+  },
+  {
+    slug: "ux-law-peak-end",
+    title: "Peak-End Rule: people remember the best moment and the last one",
+    source: "Laws of UX — Jon Yablonski",
+    category: "Lesson",
+    excerpt:
+      "Users don't average their experience — they summarize it by its emotional peaks and how it ended. A painful checkout ending with a delightful confirmation screen gets remembered differently than a smooth one ending cold. This is why good designers obsess over empty states and success screens. The ending writes the review.",
+    date: "June 2025",
+  },
+  {
+    slug: "ux-law-postel",
+    title: "Postel's Law: be generous in what you accept, strict in what you send",
+    source: "Laws of UX — Jon Yablonski",
+    category: "Lesson",
+    excerpt:
+      "Accept 'US', 'u.s.', or 'United States' — normalize it on your end, not the user's. Long forms aren't thorough; they're rude. Every field you add is a reason to abandon. The robustness principle is a hospitality principle: meet users where they are, absorb their imprecision, never make them feel like they failed a test just to sign up.",
+    date: "June 2025",
+  },
+  {
+    slug: "ux-law-serial-position",
+    title: "Serial Position Effect: first and last are remembered; middle is noise",
+    source: "Laws of UX — Jon Yablonski",
+    category: "Lesson",
+    excerpt:
+      "In any sequence, people recall the beginning and the end most reliably. The middle blurs. Nav bars know this — critical actions go far left or far right. Pricing pages know this — the plan you want bought sits at an edge. If you have something important to say, don't bury it in the center. That's where attention goes to fade.",
+    date: "June 2025",
+  },
+  {
+    slug: "ux-law-tesler",
+    title: "Tesler's Law: complexity doesn't disappear — it just moves",
+    source: "Laws of UX — Jon Yablonski",
+    category: "Lesson",
+    excerpt:
+      "Every system has an irreducible amount of complexity. The only question is who holds it: the user or the product. Gmail's smart reply isn't removing a decision — it's making it for you. Good design absorbs complexity on behalf of the user. Bad design hands it back and calls it flexibility.",
+    date: "June 2025",
+  },
+  {
+    slug: "ux-law-von-restorff",
+    title: "Von Restorff Effect: the different thing gets remembered",
+    source: "Laws of UX — Jon Yablonski",
+    category: "Lesson",
+    excerpt:
+      "In a list of similar objects, the outlier sticks. That's why CTA buttons are a different color from everything else, why pricing tables highlight one plan, why notification badges are red in a sea of grey. The effect only works if the thing is genuinely distinct. A page full of highlights has no highlights. Contrast requires restraint.",
+    date: "June 2025",
+  },
+  {
+    slug: "ux-law-zeigarnik",
+    title: "Zeigarnik Effect: unfinished things live rent-free in your head",
+    source: "Laws of UX — Jon Yablonski",
+    category: "Lesson",
+    excerpt:
+      "Incomplete tasks create cognitive tension that persists until resolved. This is why progress bars are sticky, why LinkedIn won't let the completeness badge rest, and why two-step flows convert better than one. Starting something creates a mild obligation to finish it. Give users one small win, leave one obvious next step open. The loop wants to close.",
+    date: "June 2025",
+  },
 ];
 
 export type Idea = {
