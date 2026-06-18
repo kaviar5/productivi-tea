@@ -98,58 +98,13 @@ export type Note = {
 
 export const notes: Note[] = [
   {
-    slug: "inspired-takeaways",
-    title: "Inspired — the four risks",
-    source: "Marty Cagan",
-    category: "Book",
-    excerpt:
-      "Value, usability, feasibility, viability. Most teams test the third and ship to find out about the first.",
-    date: "May 2025",
-  },
-  {
-    slug: "jobs-to-be-done",
-    title: "JTBD: the milkshake didn't want a friend",
-    source: "Christensen lecture notes",
+    slug: "21-ux-laws",
+    title: "21 UX laws I didn't know I already knew",
+    source: "Laws of UX",
     category: "Framework",
     excerpt:
-      "Hire a product the way you'd hire a contractor: for the job, not the resume. The interview is the user research.",
-    date: "April 2025",
-  },
-  {
-    slug: "writing-as-thinking",
-    title: "Writing is the work",
-    source: "Amazon-style memo practice",
-    category: "Lesson",
-    excerpt:
-      "If you can't write the one-pager, you don't understand the problem. The slide deck is a hiding place.",
-    date: "April 2025",
-  },
-  {
-    slug: "feedback-vs-data",
-    title: "Feedback is anecdote with feelings",
-    source: "Journal",
-    category: "Journal",
-    excerpt:
-      "Treat every loud opinion as a hypothesis, not a directive. The customer is always interesting, not always right.",
-    date: "March 2025",
-  },
-  {
-    slug: "continuous-discovery",
-    title: "Continuous Discovery Habits",
-    source: "Teresa Torres",
-    category: "Book",
-    excerpt:
-      "Talk to three users a week. Forever. The cadence is the insight; the meeting is the practice.",
-    date: "February 2025",
-  },
-  {
-    slug: "the-shape-of-strategy",
-    title: "Strategy is a shape, not a list",
-    source: "Lesson from a Q1 retro",
-    category: "Lesson",
-    excerpt:
-      "Roadmaps are outputs. Strategy is the shape of the choices you're willing to make and the ones you're not.",
-    date: "January 2025",
+      "Turns out most design decisions are really psychology decisions. Someone already named all the rules — here they are in plain English.",
+    date: "June 2025",
   },
   {
     slug: "ux-law-jacobs",
