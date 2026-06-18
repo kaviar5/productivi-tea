@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHeader, PageShell } from "@/components/site-layout";
 import { notes } from "@/content/data";
 
@@ -37,10 +37,12 @@ function NotesPage() {
         </div>
         <ul className="grid grid-cols-1 gap-5 md:grid-cols-2">
           {notes.map((n) => (
-            <li
-              key={n.slug}
-              className="rounded-xl border border-border bg-card p-6 shadow-warm transition-all hover:-translate-y-0.5 hover:border-coffee/40 hover:shadow-warm-lg"
-            >
+            <li key={n.slug}>
+            {n.slug === "21-ux-laws" ? (
+              <Link
+                to="/notes/21-ux-laws"
+                className="block rounded-xl border border-border bg-card p-6 shadow-warm transition-all hover:-translate-y-0.5 hover:border-coffee/40 hover:shadow-warm-lg"
+              >
               <div className="flex items-center justify-between">
                 <p className="text-xs uppercase tracking-[0.16em] text-coffee">{n.category}</p>
                 <p className="text-xs text-muted-foreground">{n.date}</p>
