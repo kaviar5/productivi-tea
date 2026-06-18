@@ -20,6 +20,7 @@ import { Route as ExperimentsRightProblemRouteImport } from './routes/experiment
 import { Route as ExperimentsMagazineWebsitesRouteImport } from './routes/experiments.magazine-websites'
 import { Route as ExperimentsBokksuIndiaRouteImport } from './routes/experiments.bokksu-india'
 import { Route as CaseStudiesReclaimRouteImport } from './routes/case-studies.reclaim'
+import { Route as CaseStudiesPulseRouteImport } from './routes/case-studies.pulse'
 import { Route as CaseStudiesLoginDetailRouteImport } from './routes/case-studies.login-detail'
 import { Route as CaseStudiesSlugRouteImport } from './routes/case-studies.$slug'
 
@@ -73,6 +74,11 @@ const ExperimentsBokksuIndiaRoute = ExperimentsBokksuIndiaRouteImport.update({
   id: '/bokksu-india',
   path: '/bokksu-india',
   getParentRoute: () => ExperimentsRoute,
+} as any)
+const CaseStudiesPulseRoute = CaseStudiesPulseRouteImport.update({
+  id: '/case-studies/pulse',
+  path: '/pulse',
+  getParentRoute: () => CaseStudiesRoute,
 } as any)
 const CaseStudiesReclaimRoute = CaseStudiesReclaimRouteImport.update({
   id: '/reclaim',
@@ -259,6 +265,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/experiments/bokksu-india'
       preLoaderRoute: typeof ExperimentsBokksuIndiaRouteImport
       parentRoute: typeof ExperimentsRoute
+    }
+    '/case-studies/pulse': {
+      id: '/case-studies/pulse'
+      path: '/pulse'
+      fullPath: '/case-studies/pulse'
+      preLoaderRoute: typeof CaseStudiesPulseRouteImport
+      parentRoute: typeof CaseStudiesRoute
     }
     '/case-studies/reclaim': {
       id: '/case-studies/reclaim'
