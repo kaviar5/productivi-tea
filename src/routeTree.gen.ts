@@ -75,14 +75,14 @@ const ExperimentsBokksuIndiaRoute = ExperimentsBokksuIndiaRouteImport.update({
   path: '/bokksu-india',
   getParentRoute: () => ExperimentsRoute,
 } as any)
-const CaseStudiesPulseRoute = CaseStudiesPulseRouteImport.update({
-  id: '/case-studies/pulse',
-  path: '/pulse',
-  getParentRoute: () => CaseStudiesRoute,
-} as any)
 const CaseStudiesReclaimRoute = CaseStudiesReclaimRouteImport.update({
   id: '/reclaim',
   path: '/reclaim',
+  getParentRoute: () => CaseStudiesRoute,
+} as any)
+const CaseStudiesPulseRoute = CaseStudiesPulseRouteImport.update({
+  id: '/pulse',
+  path: '/pulse',
   getParentRoute: () => CaseStudiesRoute,
 } as any)
 const CaseStudiesLoginDetailRoute = CaseStudiesLoginDetailRouteImport.update({
@@ -104,6 +104,7 @@ export interface FileRoutesByFullPath {
   '/notes': typeof NotesRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/case-studies/login-detail': typeof CaseStudiesLoginDetailRoute
+  '/case-studies/pulse': typeof CaseStudiesPulseRoute
   '/case-studies/reclaim': typeof CaseStudiesReclaimRoute
   '/experiments/bokksu-india': typeof ExperimentsBokksuIndiaRoute
   '/experiments/magazine-websites': typeof ExperimentsMagazineWebsitesRoute
@@ -117,6 +118,7 @@ export interface FileRoutesByTo {
   '/notes': typeof NotesRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/case-studies/login-detail': typeof CaseStudiesLoginDetailRoute
+  '/case-studies/pulse': typeof CaseStudiesPulseRoute
   '/case-studies/reclaim': typeof CaseStudiesReclaimRoute
   '/experiments/bokksu-india': typeof ExperimentsBokksuIndiaRoute
   '/experiments/magazine-websites': typeof ExperimentsMagazineWebsitesRoute
@@ -133,6 +135,7 @@ export interface FileRoutesById {
   '/notes': typeof NotesRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/case-studies/login-detail': typeof CaseStudiesLoginDetailRoute
+  '/case-studies/pulse': typeof CaseStudiesPulseRoute
   '/case-studies/reclaim': typeof CaseStudiesReclaimRoute
   '/experiments/bokksu-india': typeof ExperimentsBokksuIndiaRoute
   '/experiments/magazine-websites': typeof ExperimentsMagazineWebsitesRoute
@@ -150,6 +153,7 @@ export interface FileRouteTypes {
     | '/notes'
     | '/case-studies/$slug'
     | '/case-studies/login-detail'
+    | '/case-studies/pulse'
     | '/case-studies/reclaim'
     | '/experiments/bokksu-india'
     | '/experiments/magazine-websites'
@@ -163,6 +167,7 @@ export interface FileRouteTypes {
     | '/notes'
     | '/case-studies/$slug'
     | '/case-studies/login-detail'
+    | '/case-studies/pulse'
     | '/case-studies/reclaim'
     | '/experiments/bokksu-india'
     | '/experiments/magazine-websites'
@@ -178,6 +183,7 @@ export interface FileRouteTypes {
     | '/notes'
     | '/case-studies/$slug'
     | '/case-studies/login-detail'
+    | '/case-studies/pulse'
     | '/case-studies/reclaim'
     | '/experiments/bokksu-india'
     | '/experiments/magazine-websites'
@@ -266,18 +272,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ExperimentsBokksuIndiaRouteImport
       parentRoute: typeof ExperimentsRoute
     }
-    '/case-studies/pulse': {
-      id: '/case-studies/pulse'
-      path: '/pulse'
-      fullPath: '/case-studies/pulse'
-      preLoaderRoute: typeof CaseStudiesPulseRouteImport
-      parentRoute: typeof CaseStudiesRoute
-    }
     '/case-studies/reclaim': {
       id: '/case-studies/reclaim'
       path: '/reclaim'
       fullPath: '/case-studies/reclaim'
       preLoaderRoute: typeof CaseStudiesReclaimRouteImport
+      parentRoute: typeof CaseStudiesRoute
+    }
+    '/case-studies/pulse': {
+      id: '/case-studies/pulse'
+      path: '/pulse'
+      fullPath: '/case-studies/pulse'
+      preLoaderRoute: typeof CaseStudiesPulseRouteImport
       parentRoute: typeof CaseStudiesRoute
     }
     '/case-studies/login-detail': {
@@ -300,6 +306,7 @@ declare module '@tanstack/react-router' {
 interface CaseStudiesRouteChildren {
   CaseStudiesSlugRoute: typeof CaseStudiesSlugRoute
   CaseStudiesLoginDetailRoute: typeof CaseStudiesLoginDetailRoute
+  CaseStudiesPulseRoute: typeof CaseStudiesPulseRoute
   CaseStudiesReclaimRoute: typeof CaseStudiesReclaimRoute
   CaseStudiesIndexRoute: typeof CaseStudiesIndexRoute
 }
@@ -307,6 +314,7 @@ interface CaseStudiesRouteChildren {
 const CaseStudiesRouteChildren: CaseStudiesRouteChildren = {
   CaseStudiesSlugRoute: CaseStudiesSlugRoute,
   CaseStudiesLoginDetailRoute: CaseStudiesLoginDetailRoute,
+  CaseStudiesPulseRoute: CaseStudiesPulseRoute,
   CaseStudiesReclaimRoute: CaseStudiesReclaimRoute,
   CaseStudiesIndexRoute: CaseStudiesIndexRoute,
 }
