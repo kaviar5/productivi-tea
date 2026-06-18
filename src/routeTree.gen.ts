@@ -18,6 +18,7 @@ import { Route as ExperimentsIndexRouteImport } from './routes/experiments.index
 import { Route as CaseStudiesIndexRouteImport } from './routes/case-studies.index'
 import { Route as ExperimentsRightProblemRouteImport } from './routes/experiments.right-problem'
 import { Route as ExperimentsMagazineWebsitesRouteImport } from './routes/experiments.magazine-websites'
+import { Route as ExperimentsBokksuIndiaRouteImport } from './routes/experiments.bokksu-india'
 import { Route as CaseStudiesReclaimRouteImport } from './routes/case-studies.reclaim'
 import { Route as CaseStudiesLoginDetailRouteImport } from './routes/case-studies.login-detail'
 import { Route as CaseStudiesSlugRouteImport } from './routes/case-studies.$slug'
@@ -68,6 +69,11 @@ const ExperimentsMagazineWebsitesRoute =
     path: '/magazine-websites',
     getParentRoute: () => ExperimentsRoute,
   } as any)
+const ExperimentsBokksuIndiaRoute = ExperimentsBokksuIndiaRouteImport.update({
+  id: '/bokksu-india',
+  path: '/bokksu-india',
+  getParentRoute: () => ExperimentsRoute,
+} as any)
 const CaseStudiesReclaimRoute = CaseStudiesReclaimRouteImport.update({
   id: '/reclaim',
   path: '/reclaim',
@@ -93,6 +99,7 @@ export interface FileRoutesByFullPath {
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/case-studies/login-detail': typeof CaseStudiesLoginDetailRoute
   '/case-studies/reclaim': typeof CaseStudiesReclaimRoute
+  '/experiments/bokksu-india': typeof ExperimentsBokksuIndiaRoute
   '/experiments/magazine-websites': typeof ExperimentsMagazineWebsitesRoute
   '/experiments/right-problem': typeof ExperimentsRightProblemRoute
   '/case-studies/': typeof CaseStudiesIndexRoute
@@ -105,6 +112,7 @@ export interface FileRoutesByTo {
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/case-studies/login-detail': typeof CaseStudiesLoginDetailRoute
   '/case-studies/reclaim': typeof CaseStudiesReclaimRoute
+  '/experiments/bokksu-india': typeof ExperimentsBokksuIndiaRoute
   '/experiments/magazine-websites': typeof ExperimentsMagazineWebsitesRoute
   '/experiments/right-problem': typeof ExperimentsRightProblemRoute
   '/case-studies': typeof CaseStudiesIndexRoute
@@ -120,6 +128,7 @@ export interface FileRoutesById {
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/case-studies/login-detail': typeof CaseStudiesLoginDetailRoute
   '/case-studies/reclaim': typeof CaseStudiesReclaimRoute
+  '/experiments/bokksu-india': typeof ExperimentsBokksuIndiaRoute
   '/experiments/magazine-websites': typeof ExperimentsMagazineWebsitesRoute
   '/experiments/right-problem': typeof ExperimentsRightProblemRoute
   '/case-studies/': typeof CaseStudiesIndexRoute
@@ -136,6 +145,7 @@ export interface FileRouteTypes {
     | '/case-studies/$slug'
     | '/case-studies/login-detail'
     | '/case-studies/reclaim'
+    | '/experiments/bokksu-india'
     | '/experiments/magazine-websites'
     | '/experiments/right-problem'
     | '/case-studies/'
@@ -148,6 +158,7 @@ export interface FileRouteTypes {
     | '/case-studies/$slug'
     | '/case-studies/login-detail'
     | '/case-studies/reclaim'
+    | '/experiments/bokksu-india'
     | '/experiments/magazine-websites'
     | '/experiments/right-problem'
     | '/case-studies'
@@ -162,6 +173,7 @@ export interface FileRouteTypes {
     | '/case-studies/$slug'
     | '/case-studies/login-detail'
     | '/case-studies/reclaim'
+    | '/experiments/bokksu-india'
     | '/experiments/magazine-websites'
     | '/experiments/right-problem'
     | '/case-studies/'
@@ -241,6 +253,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ExperimentsMagazineWebsitesRouteImport
       parentRoute: typeof ExperimentsRoute
     }
+    '/experiments/bokksu-india': {
+      id: '/experiments/bokksu-india'
+      path: '/bokksu-india'
+      fullPath: '/experiments/bokksu-india'
+      preLoaderRoute: typeof ExperimentsBokksuIndiaRouteImport
+      parentRoute: typeof ExperimentsRoute
+    }
     '/case-studies/reclaim': {
       id: '/case-studies/reclaim'
       path: '/reclaim'
@@ -284,12 +303,14 @@ const CaseStudiesRouteWithChildren = CaseStudiesRoute._addFileChildren(
 )
 
 interface ExperimentsRouteChildren {
+  ExperimentsBokksuIndiaRoute: typeof ExperimentsBokksuIndiaRoute
   ExperimentsMagazineWebsitesRoute: typeof ExperimentsMagazineWebsitesRoute
   ExperimentsRightProblemRoute: typeof ExperimentsRightProblemRoute
   ExperimentsIndexRoute: typeof ExperimentsIndexRoute
 }
 
 const ExperimentsRouteChildren: ExperimentsRouteChildren = {
+  ExperimentsBokksuIndiaRoute: ExperimentsBokksuIndiaRoute,
   ExperimentsMagazineWebsitesRoute: ExperimentsMagazineWebsitesRoute,
   ExperimentsRightProblemRoute: ExperimentsRightProblemRoute,
   ExperimentsIndexRoute: ExperimentsIndexRoute,
@@ -309,13 +330,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
