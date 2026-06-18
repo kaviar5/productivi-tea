@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as NotesRouteImport } from './routes/notes'
+import { Route as NotesUXLawsRouteImport } from './routes/notes.21-ux-laws'
 import { Route as ExperimentsRouteImport } from './routes/experiments'
 import { Route as CaseStudiesRouteImport } from './routes/case-studies'
 import { Route as AboutRouteImport } from './routes/about'
@@ -24,6 +25,11 @@ import { Route as CaseStudiesPulseRouteImport } from './routes/case-studies.puls
 import { Route as CaseStudiesLoginDetailRouteImport } from './routes/case-studies.login-detail'
 import { Route as CaseStudiesSlugRouteImport } from './routes/case-studies.$slug'
 
+const NotesUXLawsRoute = NotesUXLawsRouteImport.update({
+  id: '/notes/21-ux-laws',
+  path: '/notes/21-ux-laws',
+  getParentRoute: () => rootRoute,
+} as any)
 const NotesRoute = NotesRouteImport.update({
   id: '/notes',
   path: '/notes',
@@ -102,6 +108,8 @@ export interface FileRoutesByFullPath {
   '/case-studies': typeof CaseStudiesRouteWithChildren
   '/experiments': typeof ExperimentsRouteWithChildren
   '/notes': typeof NotesRoute
+  '/notes/21-ux-laws': typeof NotesUXLawsRoute
+  '/notes/21-ux-laws': typeof NotesUXLawsRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/case-studies/login-detail': typeof CaseStudiesLoginDetailRoute
   '/case-studies/pulse': typeof CaseStudiesPulseRoute
@@ -151,6 +159,7 @@ export interface FileRouteTypes {
     | '/case-studies'
     | '/experiments'
     | '/notes'
+    | '/notes/21-ux-laws'
     | '/case-studies/$slug'
     | '/case-studies/login-detail'
     | '/case-studies/pulse'
@@ -165,6 +174,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/notes'
+    | '/notes/21-ux-laws'
     | '/case-studies/$slug'
     | '/case-studies/login-detail'
     | '/case-studies/pulse'
@@ -198,10 +208,18 @@ export interface RootRouteChildren {
   CaseStudiesRoute: typeof CaseStudiesRouteWithChildren
   ExperimentsRoute: typeof ExperimentsRouteWithChildren
   NotesRoute: typeof NotesRoute
+  NotesUXLawsRoute: typeof NotesUXLawsRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/notes/21-ux-laws': {
+      id: '/notes/21-ux-laws'
+      path: '/notes/21-ux-laws'
+      fullPath: '/notes/21-ux-laws'
+      preLoaderRoute: typeof NotesUXLawsRouteImport
+      parentRoute: typeof rootRoute
+    }
     '/notes': {
       id: '/notes'
       path: '/notes'
@@ -347,6 +365,7 @@ const rootRouteChildren: RootRouteChildren = {
   CaseStudiesRoute: CaseStudiesRouteWithChildren,
   ExperimentsRoute: ExperimentsRouteWithChildren,
   NotesRoute: NotesRoute,
+  NotesUXLawsRoute: NotesUXLawsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

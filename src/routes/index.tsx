@@ -1,6 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageShell, Divider } from "@/components/site-layout";
-import { caseStudies, notes } from "@/content/data";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -9,7 +8,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "A collection of product case studies, ideas, experiments, and notes from a quiet corner of product management.",
+          "A collection of product case studies, behavioural observations, and notes from my journey into product management.",
       },
     ],
   }),
@@ -17,20 +16,14 @@ export const Route = createFileRoute("/")({
 });
 
 function Home() {
-  const featured = caseStudies[0];
-  const recentNotes = notes.slice(0, 3);
-
   return (
     <PageShell>
       {/* HERO */}
       <section className="mx-auto max-w-3xl px-6 pt-20 pb-4 md:pt-28">
-        <p className="font-hand text-xl text-coffee md:text-2xl">
-          a quiet corner for product thinking
-        </p>
-        <h1 className="mt-5 text-balance text-5xl font-bold leading-tight text-espresso md:text-6xl">
+        <h1 className="text-balance text-5xl font-bold leading-tight text-espresso md:text-6xl">
           Brewing <em>Better</em> Products.
         </h1>
-        <p className="mt-6 max-w-lg text-base text-muted-foreground md:text-lg">
+        <p className="mt-5 max-w-lg text-base text-muted-foreground md:text-lg">
           Product case studies, behavioural observations, and notes from my
           journey into product management.
         </p>
@@ -54,7 +47,7 @@ function Home() {
         <Divider />
       </div>
 
-      {/* FEATURED CASE STUDY */}
+      {/* FEATURED CASE STUDY — ReClaim */}
       <section className="mx-auto max-w-3xl px-6 py-12">
         <div className="mb-8 flex items-baseline justify-between">
           <p className="text-xs uppercase tracking-[0.22em] text-coffee">Featured Case Study</p>
@@ -63,47 +56,51 @@ function Home() {
           </Link>
         </div>
         <Link
-          to="/case-studies/$slug"
-          params={{ slug: featured.slug }}
+          to="/case-studies/reclaim"
           className="group block rounded-2xl border border-coffee/30 bg-beige/40 p-8 shadow-warm transition-all hover:-translate-y-0.5 hover:border-coffee/60 hover:shadow-warm-lg"
         >
-          <div className="flex items-center gap-3 text-xs uppercase tracking-[0.18em] text-coffee/60">
-            <span>{featured.tag}</span>
-            <span className="h-px w-8 bg-coffee/30" />
-            <span>{featured.readingTime}</span>
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <span className="rounded-full bg-coffee px-3 py-1 text-xs uppercase tracking-[0.14em] text-primary-foreground">
+              Featured · Product Concept
+            </span>
+            <p className="text-xs text-muted-foreground">2025</p>
           </div>
           <h2 className="mt-4 text-2xl text-espresso transition-colors group-hover:text-coffee md:text-3xl">
-            {featured.title}
+            ReClaim: Reinvest in Yourself, Reclaim Your Life
           </h2>
           <p className="mt-3 text-pretty text-base text-muted-foreground">
-            {featured.summary}
+            Exploring whether accountability, rather than productivity, is the
+            real problem modern productivity apps fail to solve.
           </p>
-          <p className="mt-5 font-hand text-lg text-coffee">Read the story →</p>
+          <p className="mt-5 font-hand text-lg text-coffee">Read the case study →</p>
         </Link>
       </section>
 
-      {/* LATEST NOTES */}
+      {/* LATEST EXPERIMENT */}
       <section className="mx-auto max-w-3xl px-6 pb-20">
         <div className="mb-8 flex items-baseline justify-between">
-          <p className="text-xs uppercase tracking-[0.22em] text-coffee">Latest Notes</p>
-          <Link to="/notes" className="text-sm text-coffee hover:underline">All notes →</Link>
+          <p className="text-xs uppercase tracking-[0.22em] text-coffee">Latest Experiment</p>
+          <Link to="/experiments" className="text-sm text-coffee hover:underline">
+            All experiments →
+          </Link>
         </div>
-        <div className="flex flex-col gap-5">
-          {recentNotes.map((n) => (
-            <div
-              key={n.slug}
-              className="rounded-2xl border border-border bg-card p-6 shadow-warm"
-            >
-              <div className="flex items-center justify-between">
-                <p className="text-xs uppercase tracking-[0.16em] text-coffee">{n.category}</p>
-                <p className="text-xs text-muted-foreground">{n.date}</p>
-              </div>
-              <h3 className="mt-3 text-lg text-espresso">{n.title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{n.excerpt}</p>
-              <p className="mt-4 font-hand text-base text-coffee">{n.source}</p>
-            </div>
-          ))}
-        </div>
+        <Link
+          to="/experiments/magazine-websites"
+          className="group block rounded-2xl border border-border bg-card p-8 shadow-warm transition-all hover:-translate-y-0.5 hover:border-coffee/40 hover:shadow-warm-lg"
+        >
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <span className="text-xs uppercase tracking-[0.16em] text-coffee">Design Experiment</span>
+            <p className="text-xs text-muted-foreground">2025</p>
+          </div>
+          <h3 className="mt-3 text-xl text-espresso transition-colors group-hover:text-coffee md:text-2xl">
+            What If Websites Were Designed Like a Magazine?
+          </h3>
+          <p className="mt-3 text-sm text-muted-foreground md:text-base">
+            A design experiment exploring whether editorial and magazine-inspired
+            layouts could replace conventional web design patterns.
+          </p>
+          <p className="mt-5 font-hand text-lg text-coffee">Read the experiment →</p>
+        </Link>
       </section>
     </PageShell>
   );

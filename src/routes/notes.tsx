@@ -14,8 +14,6 @@ export const Route = createFileRoute("/notes")({
   component: NotesPage,
 });
 
-const categories = ["All", "Book", "Framework", "Lesson", "Journal"] as const;
-
 function NotesPage() {
   return (
     <PageShell>
@@ -24,34 +22,28 @@ function NotesPage() {
         title="Product Notes"
         description="Things I've underlined, frameworks I keep returning to, and the slow journal of learning the craft."
       />
-      <section className="mx-auto max-w-5xl px-6 pb-16">
-        <div className="mb-8 flex flex-wrap justify-center gap-2">
-          {categories.map((c) => (
-            <span
-              key={c}
-              className="rounded-full border border-border bg-cream px-4 py-1.5 text-xs uppercase tracking-[0.14em] text-coffee"
-            >
-              {c}
-            </span>
-          ))}
-        </div>
-        <ul className="grid grid-cols-1 gap-5 md:grid-cols-2">
+      <section className="mx-auto max-w-3xl px-6 pb-16">
+        <ul className="flex flex-col gap-5">
           {notes.map((n) => (
             <li key={n.slug}>
-            {n.slug === "21-ux-laws" ? (
               <Link
                 to="/notes/21-ux-laws"
-                className="block rounded-xl border border-border bg-card p-6 shadow-warm transition-all hover:-translate-y-0.5 hover:border-coffee/40 hover:shadow-warm-lg"
+                className="group block rounded-2xl border border-coffee/30 bg-beige/40 p-8 shadow-warm transition-all hover:-translate-y-0.5 hover:border-coffee/60 hover:shadow-warm-lg"
               >
-              <div className="flex items-center justify-between">
-                <p className="text-xs uppercase tracking-[0.16em] text-coffee">{n.category}</p>
-                <p className="text-xs text-muted-foreground">{n.date}</p>
-              </div>
-              <h2 className="mt-3 font-serif text-xl text-espresso">{n.title}</h2>
-              <p className="mt-3 text-pretty text-sm leading-relaxed text-muted-foreground md:text-base">
-                {n.excerpt}
-              </p>
-              <p className="mt-4 font-hand text-base text-coffee">— {n.source}</p>
+                <div className="flex items-center justify-between">
+                  <span className="rounded-full bg-coffee px-3 py-1 text-xs uppercase tracking-[0.14em] text-primary-foreground">
+                    {n.category}
+                  </span>
+                  <p className="text-xs text-muted-foreground">{n.date}</p>
+                </div>
+                <h2 className="mt-4 text-2xl text-espresso transition-colors group-hover:text-coffee md:text-3xl">
+                  {n.title}
+                </h2>
+                <p className="mt-3 text-pretty text-base text-muted-foreground">
+                  {n.excerpt}
+                </p>
+                <p className="mt-5 font-hand text-lg text-coffee">Read the note →</p>
+              </Link>
             </li>
           ))}
         </ul>
