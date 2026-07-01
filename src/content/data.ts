@@ -102,45 +102,4 @@ export type Experiment = {
   date: string;
 };
 
-export const experiments: Experiment[] = [
-  {
-    title: "The 90-second onboarding cut",
-    hypothesis: "If we remove the topic picker, users will reach a 'first read' moment faster and return more.",
-    result: "Time-to-first-read fell from 2m 40s to 0m 38s. D7 retention +22%.",
-    insight: "Configuration is a tax we charge users for our indecision.",
-    status: "Shipped",
-    date: "March 2025",
-  },
-  {
-    title: "Pricing as a paragraph",
-    hypothesis: "Replacing the comparison table with prose will improve trial conversion.",
-    result: "Conversion lift of 17%. Bounce rate on /pricing fell by 31%.",
-    insight: "Tables compare. Prose convinces. Most pricing pages do the wrong job.",
-    status: "Shipped",
-    date: "January 2025",
-  },
-  {
-    title: "The morning brief",
-    hypothesis: "A daily three-sentence summary will replace the dashboard for 80% of users.",
-    result: "70% of opens go to the brief; full dashboard usage stable among power users.",
-    insight: "Summaries don't kill detail — they protect it from people who don't need it.",
-    status: "Shipped",
-    date: "November 2024",
-  },
-  {
-    title: "Streaks for non-gamers",
-    hypothesis: "A gentle streak indicator (no fire emojis) will improve weekly active reading.",
-    result: "Net neutral on WAU. Qual feedback: people felt watched, not motivated.",
-    insight: "Streaks borrow against trust. Don't unless the user asked for the loan.",
-    status: "Killed",
-    date: "September 2024",
-  },
-  {
-    title: "Decision diary prompts",
-    hypothesis: "Weekly retro prompts improve self-reported clarity for IC PMs.",
-    result: "Eight weeks in; 14 participants; clarity scores trending up. Continuing.",
-    insight: "The act of writing is the intervention. The tool is just the appointment.",
-    status: "Ongoing",
-    date: "Ongoing",
-  },
-];
+export const experiments: Experiment[] = [];
