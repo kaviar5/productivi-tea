@@ -12,80 +12,7 @@ export type CaseStudy = {
   outcome: string;
 };
 
-export const caseStudies: CaseStudy[] = [
-  {
-    slug: "rebrewing-onboarding",
-    title: "Rebrewing Onboarding for a Reading App",
-    summary:
-      "How rethinking the first five minutes lifted week-one retention by 22% — without adding a single feature.",
-    role: "Product Lead",
-    readingTime: "8 min read",
-    date: "March 2025",
-    tag: "Growth",
-    problem:
-      "New readers were signing up, finishing the tour, and never coming back. Activation was happening in form, not in feeling.",
-    analysis: [
-      "Funnel teardown revealed users dropped on the 'pick 5 topics' screen, not the sign-up wall.",
-      "Eight user interviews surfaced a quiet theme: people wanted to start reading, not configure a profile.",
-      "Cohort analysis showed users who opened a book in session one were 4.1× more likely to return on day seven.",
-    ],
-    solution: [
-      "Removed the topic picker. Replaced it with a single first-read suggestion based on signup intent.",
-      "Moved profile setup to a soft, dismissable prompt after the first chapter.",
-      "Added a quiet 'continue reading' nudge — no email, just a calm in-app card.",
-    ],
-    outcome:
-      "Week-one retention climbed from 31% to 38%. Average first session length grew from 90 seconds to 4 minutes.",
-  },
-  {
-    slug: "menu-of-one",
-    title: "A Menu of One: Simplifying Pricing",
-    summary:
-      "Three tiers became one. Conversion went up, support tickets went down, and the team finally agreed on what we sold.",
-    role: "Senior PM",
-    readingTime: "6 min read",
-    date: "January 2025",
-    tag: "Strategy",
-    problem:
-      "The pricing page was an accumulation of compromises. Sales had a fourth secret tier. Customers were paralyzed.",
-    analysis: [
-      "Mapped feature usage against tier — 80% of value came from features in every tier.",
-      "Talked to 12 churned accounts. None mentioned price. All mentioned confusion.",
-      "Compared against 6 competitors; complexity was the category default, not a requirement.",
-    ],
-    solution: [
-      "Collapsed into a single plan with usage-based add-ons.",
-      "Rewrote the pricing page in plain language, removed the comparison table.",
-      "Built a 'what you get' visual instead of a checklist.",
-    ],
-    outcome:
-      "Trial-to-paid conversion improved by 17%. Pricing-related support volume dropped 60%.",
-  },
-  {
-    slug: "the-quiet-dashboard",
-    title: "The Quiet Dashboard",
-    summary:
-      "A design exercise in removing — fewer charts, fewer numbers, more meaning. Featured in our quarterly retro.",
-    role: "PM, Analytics",
-    readingTime: "5 min read",
-    date: "November 2024",
-    tag: "Design",
-    problem:
-      "Our analytics dashboard had grown to 23 widgets. Power users loved it. Everyone else bounced in 11 seconds.",
-    analysis: [
-      "Heatmaps showed only 4 widgets received meaningful attention.",
-      "Surveyed users described the dashboard as 'a wall of numbers'.",
-      "Interviews revealed people wanted a sentence, not a chart.",
-    ],
-    solution: [
-      "Built a 'morning brief' view: three sentences summarizing the previous day.",
-      "Tucked the full dashboard behind a 'see the numbers' link.",
-      "Added one small ritual: a daily question to react to.",
-    ],
-    outcome:
-      "Daily active dashboard users tripled. NPS on the analytics surface went from 12 to 41.",
-  },
-];
+export const caseStudies: CaseStudy[] = [];
 
 export type Note = {
   slug: string;
@@ -175,45 +102,4 @@ export type Experiment = {
   date: string;
 };
 
-export const experiments: Experiment[] = [
-  {
-    title: "The 90-second onboarding cut",
-    hypothesis: "If we remove the topic picker, users will reach a 'first read' moment faster and return more.",
-    result: "Time-to-first-read fell from 2m 40s to 0m 38s. D7 retention +22%.",
-    insight: "Configuration is a tax we charge users for our indecision.",
-    status: "Shipped",
-    date: "March 2025",
-  },
-  {
-    title: "Pricing as a paragraph",
-    hypothesis: "Replacing the comparison table with prose will improve trial conversion.",
-    result: "Conversion lift of 17%. Bounce rate on /pricing fell by 31%.",
-    insight: "Tables compare. Prose convinces. Most pricing pages do the wrong job.",
-    status: "Shipped",
-    date: "January 2025",
-  },
-  {
-    title: "The morning brief",
-    hypothesis: "A daily three-sentence summary will replace the dashboard for 80% of users.",
-    result: "70% of opens go to the brief; full dashboard usage stable among power users.",
-    insight: "Summaries don't kill detail — they protect it from people who don't need it.",
-    status: "Shipped",
-    date: "November 2024",
-  },
-  {
-    title: "Streaks for non-gamers",
-    hypothesis: "A gentle streak indicator (no fire emojis) will improve weekly active reading.",
-    result: "Net neutral on WAU. Qual feedback: people felt watched, not motivated.",
-    insight: "Streaks borrow against trust. Don't unless the user asked for the loan.",
-    status: "Killed",
-    date: "September 2024",
-  },
-  {
-    title: "Decision diary prompts",
-    hypothesis: "Weekly retro prompts improve self-reported clarity for IC PMs.",
-    result: "Eight weeks in; 14 participants; clarity scores trending up. Continuing.",
-    insight: "The act of writing is the intervention. The tool is just the appointment.",
-    status: "Ongoing",
-    date: "Ongoing",
-  },
-];
+export const experiments: Experiment[] = [];

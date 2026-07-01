@@ -9,15 +9,15 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as UxLawsRouteImport } from './routes/ux-laws'
 import { Route as NotesRouteImport } from './routes/notes'
-import { Route as NotesUXLawsRouteImport } from './routes/notes.21-ux-laws'
-import { Route as UXLawsRouteImport } from './routes/ux-laws'
 import { Route as ExperimentsRouteImport } from './routes/experiments'
 import { Route as CaseStudiesRouteImport } from './routes/case-studies'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ExperimentsIndexRouteImport } from './routes/experiments.index'
 import { Route as CaseStudiesIndexRouteImport } from './routes/case-studies.index'
+import { Route as Notes21UxLawsRouteImport } from './routes/notes.21-ux-laws'
 import { Route as ExperimentsRightProblemRouteImport } from './routes/experiments.right-problem'
 import { Route as ExperimentsMagazineWebsitesRouteImport } from './routes/experiments.magazine-websites'
 import { Route as ExperimentsBokksuIndiaRouteImport } from './routes/experiments.bokksu-india'
@@ -26,15 +26,10 @@ import { Route as CaseStudiesPulseRouteImport } from './routes/case-studies.puls
 import { Route as CaseStudiesLoginDetailRouteImport } from './routes/case-studies.login-detail'
 import { Route as CaseStudiesSlugRouteImport } from './routes/case-studies.$slug'
 
-const UXLawsRoute = UXLawsRouteImport.update({
+const UxLawsRoute = UxLawsRouteImport.update({
   id: '/ux-laws',
   path: '/ux-laws',
-  getParentRoute: () => rootRoute,
-} as any)
-const NotesUXLawsRoute = NotesUXLawsRouteImport.update({
-  id: '/notes/21-ux-laws',
-  path: '/notes/21-ux-laws',
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => rootRouteImport,
 } as any)
 const NotesRoute = NotesRouteImport.update({
   id: '/notes',
@@ -70,6 +65,11 @@ const CaseStudiesIndexRoute = CaseStudiesIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => CaseStudiesRoute,
+} as any)
+const Notes21UxLawsRoute = Notes21UxLawsRouteImport.update({
+  id: '/21-ux-laws',
+  path: '/21-ux-laws',
+  getParentRoute: () => NotesRoute,
 } as any)
 const ExperimentsRightProblemRoute = ExperimentsRightProblemRouteImport.update({
   id: '/right-problem',
@@ -113,9 +113,8 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/case-studies': typeof CaseStudiesRouteWithChildren
   '/experiments': typeof ExperimentsRouteWithChildren
-  '/notes': typeof NotesRoute
-  '/notes/21-ux-laws': typeof NotesUXLawsRoute
-  '/notes/21-ux-laws': typeof NotesUXLawsRoute
+  '/notes': typeof NotesRouteWithChildren
+  '/ux-laws': typeof UxLawsRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/case-studies/login-detail': typeof CaseStudiesLoginDetailRoute
   '/case-studies/pulse': typeof CaseStudiesPulseRoute
@@ -123,13 +122,15 @@ export interface FileRoutesByFullPath {
   '/experiments/bokksu-india': typeof ExperimentsBokksuIndiaRoute
   '/experiments/magazine-websites': typeof ExperimentsMagazineWebsitesRoute
   '/experiments/right-problem': typeof ExperimentsRightProblemRoute
+  '/notes/21-ux-laws': typeof Notes21UxLawsRoute
   '/case-studies/': typeof CaseStudiesIndexRoute
   '/experiments/': typeof ExperimentsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/notes': typeof NotesRoute
+  '/notes': typeof NotesRouteWithChildren
+  '/ux-laws': typeof UxLawsRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/case-studies/login-detail': typeof CaseStudiesLoginDetailRoute
   '/case-studies/pulse': typeof CaseStudiesPulseRoute
@@ -137,6 +138,7 @@ export interface FileRoutesByTo {
   '/experiments/bokksu-india': typeof ExperimentsBokksuIndiaRoute
   '/experiments/magazine-websites': typeof ExperimentsMagazineWebsitesRoute
   '/experiments/right-problem': typeof ExperimentsRightProblemRoute
+  '/notes/21-ux-laws': typeof Notes21UxLawsRoute
   '/case-studies': typeof CaseStudiesIndexRoute
   '/experiments': typeof ExperimentsIndexRoute
 }
@@ -146,7 +148,8 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/case-studies': typeof CaseStudiesRouteWithChildren
   '/experiments': typeof ExperimentsRouteWithChildren
-  '/notes': typeof NotesRoute
+  '/notes': typeof NotesRouteWithChildren
+  '/ux-laws': typeof UxLawsRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/case-studies/login-detail': typeof CaseStudiesLoginDetailRoute
   '/case-studies/pulse': typeof CaseStudiesPulseRoute
@@ -154,6 +157,7 @@ export interface FileRoutesById {
   '/experiments/bokksu-india': typeof ExperimentsBokksuIndiaRoute
   '/experiments/magazine-websites': typeof ExperimentsMagazineWebsitesRoute
   '/experiments/right-problem': typeof ExperimentsRightProblemRoute
+  '/notes/21-ux-laws': typeof Notes21UxLawsRoute
   '/case-studies/': typeof CaseStudiesIndexRoute
   '/experiments/': typeof ExperimentsIndexRoute
 }
@@ -165,7 +169,6 @@ export interface FileRouteTypes {
     | '/case-studies'
     | '/experiments'
     | '/notes'
-    | '/notes/21-ux-laws'
     | '/ux-laws'
     | '/case-studies/$slug'
     | '/case-studies/login-detail'
@@ -174,6 +177,7 @@ export interface FileRouteTypes {
     | '/experiments/bokksu-india'
     | '/experiments/magazine-websites'
     | '/experiments/right-problem'
+    | '/notes/21-ux-laws'
     | '/case-studies/'
     | '/experiments/'
   fileRoutesByTo: FileRoutesByTo
@@ -181,7 +185,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/notes'
-    | '/notes/21-ux-laws'
+    | '/ux-laws'
     | '/case-studies/$slug'
     | '/case-studies/login-detail'
     | '/case-studies/pulse'
@@ -189,6 +193,7 @@ export interface FileRouteTypes {
     | '/experiments/bokksu-india'
     | '/experiments/magazine-websites'
     | '/experiments/right-problem'
+    | '/notes/21-ux-laws'
     | '/case-studies'
     | '/experiments'
   id:
@@ -198,6 +203,7 @@ export interface FileRouteTypes {
     | '/case-studies'
     | '/experiments'
     | '/notes'
+    | '/ux-laws'
     | '/case-studies/$slug'
     | '/case-studies/login-detail'
     | '/case-studies/pulse'
@@ -205,6 +211,7 @@ export interface FileRouteTypes {
     | '/experiments/bokksu-india'
     | '/experiments/magazine-websites'
     | '/experiments/right-problem'
+    | '/notes/21-ux-laws'
     | '/case-studies/'
     | '/experiments/'
   fileRoutesById: FileRoutesById
@@ -214,9 +221,8 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   CaseStudiesRoute: typeof CaseStudiesRouteWithChildren
   ExperimentsRoute: typeof ExperimentsRouteWithChildren
-  NotesRoute: typeof NotesRoute
-  NotesUXLawsRoute: typeof NotesUXLawsRoute
-  UXLawsRoute: typeof UXLawsRoute
+  NotesRoute: typeof NotesRouteWithChildren
+  UxLawsRoute: typeof UxLawsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -225,15 +231,8 @@ declare module '@tanstack/react-router' {
       id: '/ux-laws'
       path: '/ux-laws'
       fullPath: '/ux-laws'
-      preLoaderRoute: typeof UXLawsRouteImport
-      parentRoute: typeof rootRoute
-    }
-    '/notes/21-ux-laws': {
-      id: '/notes/21-ux-laws'
-      path: '/notes/21-ux-laws'
-      fullPath: '/notes/21-ux-laws'
-      preLoaderRoute: typeof NotesUXLawsRouteImport
-      parentRoute: typeof rootRoute
+      preLoaderRoute: typeof UxLawsRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/notes': {
       id: '/notes'
@@ -283,6 +282,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/case-studies/'
       preLoaderRoute: typeof CaseStudiesIndexRouteImport
       parentRoute: typeof CaseStudiesRoute
+    }
+    '/notes/21-ux-laws': {
+      id: '/notes/21-ux-laws'
+      path: '/21-ux-laws'
+      fullPath: '/notes/21-ux-laws'
+      preLoaderRoute: typeof Notes21UxLawsRouteImport
+      parentRoute: typeof NotesRoute
     }
     '/experiments/right-problem': {
       id: '/experiments/right-problem'
@@ -374,14 +380,23 @@ const ExperimentsRouteWithChildren = ExperimentsRoute._addFileChildren(
   ExperimentsRouteChildren,
 )
 
+interface NotesRouteChildren {
+  Notes21UxLawsRoute: typeof Notes21UxLawsRoute
+}
+
+const NotesRouteChildren: NotesRouteChildren = {
+  Notes21UxLawsRoute: Notes21UxLawsRoute,
+}
+
+const NotesRouteWithChildren = NotesRoute._addFileChildren(NotesRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   CaseStudiesRoute: CaseStudiesRouteWithChildren,
   ExperimentsRoute: ExperimentsRouteWithChildren,
-  NotesRoute: NotesRoute,
-  NotesUXLawsRoute: NotesUXLawsRoute,
-  UXLawsRoute: UXLawsRoute,
+  NotesRoute: NotesRouteWithChildren,
+  UxLawsRoute: UxLawsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
